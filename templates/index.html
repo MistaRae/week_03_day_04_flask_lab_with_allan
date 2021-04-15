@@ -5,29 +5,36 @@
 
 {% block content %}
 
+    
+    <div class=container></div>
     <h1> Add an Event</h1>
     <form action="/" method="post"> 
-        <input type="text" name="date" id="date">
-        <input type="date" name="name-of-event" id="name-of-event">
+        <label for="name-of-event">Name of Event</label>
+        <input type="text" name="name-of-event" id="name-of-event">
+        <label for="date"> Date</label>
+        <input type="date" name="date" id="date">
+        <label for="number-of-guests">No. of Guests</label>
         <input type="number" name="number-of-guests" id="number-of-guests">
+        <label for="room-location">Location</label>
         <input type="text" name="room-location" id="room-location">
+        <label for="checkbox">Recurring</label>
         <input type="checkbox" data-val="true" value= "true" name="recurring" id="recurring">
+        <label for="description"> Additional Info</label>
         <textarea name="description" id="description" cols="30" rows="10"></textarea>
         <input type="submit" value = "Add Event">
     </form>
 
-    <h1>Upcoming Events</h1>
-
-    {% for event in events %}
-        <div>
+    <div>
+        <h1>Upcoming Events</h1>
+            {% for event in events %}
             <p> {{event.name}} {{event.date}} {{event.num_guests}} 
                 {{event.room_location}} {{event.desc}} 
                 {% if event.recurring %} 
                 <span> ✅ </span>    
                 {% endif %}
             </p>
-                
-        </div>
-    {% endfor %}
+            {% endfor %}   
+    </div>
     
+</div>   
 {% endblock %}

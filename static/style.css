@@ -1,0 +1,26 @@
+body > ul {
+    background-color: dodgerblue;
+    padding: 1%;
+    list-style: none;
+}
+
+body > ul >li {
+    color: floralwhite;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+    "input event";
+    grid-template-columns: 1fr 1fr;
+}
+
+body > form {
+    display: grid;
+    grid-area: input
+}
+
+body > div {
+    display: grid;
+    grid-area: event;
+}
