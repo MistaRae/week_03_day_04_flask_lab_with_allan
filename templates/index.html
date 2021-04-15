@@ -1,0 +1,33 @@
+<!-- extends from base header file -->
+
+<!-- includes form for user input as a block of content -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1> Add an Event</h1>
+    <form action="/" method="post"> 
+        <input type="text" name="date" id="date">
+        <input type="date" name="name-of-event" id="name-of-event">
+        <input type="number" name="number-of-guests" id="number-of-guests">
+        <input type="text" name="room-location" id="room-location">
+        <input type="checkbox" data-val="true" value= "true" name="recurring" id="recurring">
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <input type="submit" value = "Add Event">
+    </form>
+
+    <h1>Upcoming Events</h1>
+
+    {% for event in events %}
+        <div>
+            <p> {{event.name}} {{event.date}} {{event.num_guests}} 
+                {{event.room_location}} {{event.desc}} 
+                {% if event.recurring %} 
+                <span> ✅ </span>    
+                {% endif %}
+            </p>
+                
+        </div>
+    {% endfor %}
+    
+{% endblock %}
